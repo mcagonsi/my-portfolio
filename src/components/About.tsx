@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import TechStack from "./TechStack";
 export default function About() {
     return (
-        <section id="about" className="py-20 px-4 bg-white text-black">
+        <section id="about" className="py-20 px-4 bg-white text-black max-w-full mx-auto">
             {/* Title */}
             <motion.h2
                 initial={{ opacity: 0, y: 50 }}

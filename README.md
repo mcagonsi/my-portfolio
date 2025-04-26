@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-michael-agonsi.vercel.app
+https://michael-agonsi.vercel.app
 
 A modern, responsive portfolio website built with Next.js and TypeScript, featuring a clean and professional design.
 
@@ -85,4 +85,4 @@ The website can be customized by:
 
 ## License
 
-[Add your license here]
+MIT License
