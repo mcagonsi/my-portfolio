@@ -32,7 +32,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-3xl md:text-6xl font-bold"
+                    className="text-3xl md:text-5xl font-bold"
                 >
                     <span className='text-white'>Hello! I’m </span><span className="text-blue-500">MICHAEL AGONSI</span>
                 </motion.h1>
