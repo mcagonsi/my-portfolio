@@ -85,4 +85,4 @@ The website can be customized by:
 
 ## License
 
-[Add your license here]
+MIT License
