@@ -12,7 +12,7 @@ export default function Projects() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }} className="py-20 px-4 bg-white text-black">
             {/* Title */}
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold max-w-full text-center mb-12">
                 My Portfolio
             </h2>
 

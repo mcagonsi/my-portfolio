@@ -17,11 +17,11 @@ export default function About() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7 }} className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 text-gray-500 text-lg leading-relaxed">
+                transition={{ duration: 0.7 }} className="max-w-full px-8 mx-auto grid md:grid-cols-2 gap-10 text-gray-500 text-lg leading-relaxed">
                 <p className="text-center md:text-left">
                     I started my journey in the medical field, driven by a passion for problem-solving and making a tangible impact. Over time, I realized my curiosity extended beyond healthcare — I was drawn to technology’s ability to create scalable, innovative solutions.
                 </p>
-                <p className="xl:mt-20 text-center md:text-left">
+                <p className="xl:mt-20 text-center mt-20 md:text-left">
                     Now, as a Fullstack Developer, I channel my analytical thinking and attention to detail into building high-performance applications. With hands-on experience in frontend and backend development, I specialize in crafting seamless digital experiences and optimizing systems for efficiency. My unique background allows me to approach challenges with a fresh perspective, blending logic, creativity, and a strong problem-solving mindset. Let’s build something transformative together.
                 </p>
             </motion.div>
