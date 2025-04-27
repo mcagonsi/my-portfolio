@@ -7,10 +7,11 @@ export default function Projects() {
 
     return (
         <motion.section id="projects"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 1, scale: 1, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }} className="py-20 px-4 bg-white text-black">
+            transition={{ duration: 0.7 }}
+            className="py-20 px-4 bg-white text-black">
             {/* Title */}
             <h2 className="text-3xl md:text-4xl font-bold max-w-full text-center mb-12">
                 My Portfolio

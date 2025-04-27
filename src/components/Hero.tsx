@@ -24,10 +24,10 @@ export default function Hero() {
     }, []);// typing speed (ms)
 
     return (
-        <section className=" min-h-screen flex flex-col justify-center items-left text-left px-4 bg-black ">
-            <div className="absolute inset-0 opacity-40 bg-[url('/logosport.png')] bg-cover bg-center"></div>
+        <section className="relative sm:h-screen md:h-screen lg:h-screen flex flex-col justify-center items-left text-left px-4 bg-black ">
+            <div className="absolute inset-0 opacity-60 bg-[url('/logosport.png')] bg-cover bg-center"></div>
 
-            <div className="relative z-20">
+            <div className=" relative z-20">
                 <motion.h1
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ export default function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 1 }}
-                    className="mt-4 text-7xl md:text-xxl font-bold"
+                    className="mt-4 font-bold text-5xl md:text-6xl lg:text-7xl"
                 >
                     FULLSTACK <span className="text-blue-400">DEVELOPER</span>
                 </motion.h2>
@@ -68,7 +68,7 @@ export default function Hero() {
                         Let’s Talk
                     </motion.button>
                 </div>
-                <div className="flex items-left">
+                <div className="flex pb-8 items-left">
                     <SocialLinks />
                 </div>
 
