@@ -1,0 +1,16 @@
+{
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingQuotes": "always",
+    "editor.autoSurround": "quotes",
+    "editor.tabCompletion": "on",
+    "editor.snippetSuggestions": "top",
+    "editor.suggest.showKeywords": true,
+    "editor.suggestSelection": "first",
+    "editor.acceptSuggestionOnEnter": "on",
+    "typescript.suggest.autoImports": true,
+    "javascript.suggest.autoImports": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.linkedEditing": true,
+    "editor.bracketPairColorization.enabled": true
+}

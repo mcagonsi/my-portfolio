@@ -10,9 +10,9 @@ export default function Navbar() {
 
     const navLinks = [
         { href: "/", label: "Home" },
-        { href: "#projects", label: "Projects" },
-        { href: "#about", label: "About Me" },
-        { href: "#contact", label: "Contact" }
+        { href: "/projects", label: "Projects" },
+        { href: "/#about", label: "About Me" },
+        { href: "/#contact", label: "Contact" }
     ];
 
     return (
@@ -35,7 +35,7 @@ export default function Navbar() {
                                 {link.label}
                             </Link>
                         ))}
-                        <Link href="#contact">
+                        <Link href="/#contact">
                             <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md transition-colors duration-300">
                                 Let&apos;s Connect
                             </button>
@@ -83,7 +83,7 @@ export default function Navbar() {
                             </Link>
                         ))}
                         <Link
-                            href="#contact"
+                            href="/#contact"
                             onClick={() => setIsMenuOpen(false)}
                             className="block px-3 py-2"
                         >
