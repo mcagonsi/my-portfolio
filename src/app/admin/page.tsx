@@ -1,3 +1,6 @@
+import Link from "next/link";
+
+
 export default function Admin() {
     return (
         <main lang="en" className="flex max-h-screen w-full bg-black px-4 text-white">
@@ -16,7 +19,7 @@ export default function Admin() {
                         placeholder="Password"
                         className="block mx-auto mb-4 w-full max-w-sm p-2 border border-gray-300 rounded" />
                     <button className="bg-black w-full max-w-sm text-white px-4 py-2 rounded-sm hover:shadow-mds hover:bg-white hover:text-black transition duration-300">
-                        Login
+                        <Link href="/admin/dashboard">Login</Link>
                     </button>
                 </form>
             </div>
