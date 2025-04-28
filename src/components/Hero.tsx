@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import SocialLinks from "./SocialLinks";
+import Link from "next/link";
 
 export default function Hero() {
 
@@ -58,14 +59,15 @@ export default function Hero() {
                         transition={{ delay: 0.5, duration: 1 }}
                         className="border-2 border-blue-500 bg-white text-blue-500 px-6 py-2 rounded-md hover:bg-blue-500 hover:text-white">
 
-                        Why Hire Me ?
+                        <Link href="#about">Why Hire Me ?</Link>
                     </motion.button>
                     <motion.button
+
                         initial={{ opacity: 0, x: 60 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.5, duration: 1 }}
                         className="bg-blue-500 px-6 py-2 rounded-md text-white hover:bg-white hover:text-black hover:scale-110">
-                        Let’s Talk
+                        <Link href="#contact">Let’s Talk</Link>
                     </motion.button>
                 </div>
                 <div className="flex pb-8 items-left">
