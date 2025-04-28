@@ -7,7 +7,7 @@ export default function Contact() {
             initial={{ opacity: 1, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.9 }} id="contact" className="py-20 px-4 bg-black text-white max-w-full">
+            transition={{ duration: 0.9 }} id="contact" className="py-20 px-4 bg-black text-white sm:max-w-full md:max-w-xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
                 Contact Me
             </h2>
@@ -51,7 +51,7 @@ export default function Contact() {
                 <div className="md:col-span-2 flex justify-center">
                     <button
                         type="submit"
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-10 py-3 rounded-md transition"
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-10 py-3 w-full rounded-md transition"
                     >
                         Send
                     </button>

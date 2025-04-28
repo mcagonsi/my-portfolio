@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import SocialLinks from "./SocialLinks";
 import Link from "next/link";
+import ExperienceReports from "./ExperienceReports";
 
 export default function Hero() {
 
@@ -25,7 +26,7 @@ export default function Hero() {
     }, []);// typing speed (ms)
 
     return (
-        <section className="relative sm:h-screen md:h-screen lg:h-screen flex flex-col justify-center items-left text-left px-4 bg-black ">
+        <section className="relative sm:h-screen md:h-screen lg:h-screen flex flex-col justify-center items-left text-left px-4 py-8 bg-black ">
             <div className="absolute inset-0 opacity-60 bg-[url('/logosport.png')] bg-cover bg-center"></div>
 
             <div className=" relative z-20">
@@ -72,6 +73,9 @@ export default function Hero() {
                 </div>
                 <div className="flex pb-8 items-left">
                     <SocialLinks />
+                </div>
+                <div>
+                    <ExperienceReports />
                 </div>
 
             </div>
