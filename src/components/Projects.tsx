@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 // import { connectToDB } from "@/lib/data";
 
-export default function Projects(projects: any) {
+export default function Projects() {
 
 
     return (
@@ -13,7 +13,7 @@ export default function Projects(projects: any) {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="py-20 px-4 bg-white text-black">
-            {projects && <p className='text-green-700'>Connected</p>}
+
             {/* Title */}
             <h2 className="text-3xl md:text-4xl font-bold max-w-full text-center mb-12">
                 My Portfolio

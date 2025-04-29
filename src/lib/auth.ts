@@ -9,7 +9,7 @@ export const authOptions: AuthOptions = {
     }),
   ],
   callbacks: {
-    async redirect({ url, baseUrl }) {
+    async redirect() {
       return "/admin/dashboard"; // redirect after login
     },
   },
