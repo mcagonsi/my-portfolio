@@ -1,7 +1,9 @@
+
+"use client";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 
-
-export default function Admin() {
+export default function LoginButton() {
     return (
         <main lang="en" className="flex max-h-screen w-full bg-black px-4 text-white">
 
@@ -21,8 +23,23 @@ export default function Admin() {
                     <button className="bg-black w-full max-w-sm text-white px-4 py-2 rounded-sm hover:shadow-mds hover:bg-white hover:text-black transition duration-300">
                         <Link href="/admin/dashboard">Login</Link>
                     </button>
+
+
                 </form>
+                <div className="flex flex-col w-full">
+
+                    <button
+                        onClick={() => signIn("github")}
+                        className="bg-blue-700 w-full max-w-sm mx-auto my-8 font-bold text-white px-4 py-2 rounded"
+                    >
+                        Sign in with GitHub
+                    </button>
+                </div>
+
             </div>
+
         </main>
     );
 }
+
+
