@@ -1,7 +1,7 @@
 
 "use client";
 import { signIn } from "next-auth/react";
-import Link from "next/link";
+
 
 export default function LoginButton() {
     return (
@@ -9,28 +9,20 @@ export default function LoginButton() {
 
             <div className="flex flex-col w-full md:w-3xl m-auto py-10 px-4 bg-white rounded text-black">
                 <h1 className="text-3xl font-bold text-center pb-8">Admin Login</h1>
+                <div className="flex flex-col w-full">
 
-                <form className="flex flex-col w-full  items-center justify-center bg-white text-black">
-                    <input
-                        type="text"
-                        placeholder="Username"
-                        className="block mx-auto w-full max-w-sm mb-4 p-2 border border-gray-300 rounded" />
-
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        className="block mx-auto mb-4 w-full max-w-sm p-2 border border-gray-300 rounded" />
-                    <button className="bg-black w-full max-w-sm text-white px-4 py-2 rounded-sm hover:shadow-mds hover:bg-white hover:text-black transition duration-300">
-                        <Link href="/admin/dashboard">Login</Link>
+                    <button
+                        onClick={() => signIn("google")}
+                        className="bg-red-700 w-full max-w-sm mx-auto my-8 font-bold text-white px-4 py-2 rounded"
+                    >
+                        Sign in with Google
                     </button>
-
-
-                </form>
+                </div>
                 <div className="flex flex-col w-full">
 
                     <button
                         onClick={() => signIn("github")}
-                        className="bg-blue-700 w-full max-w-sm mx-auto my-8 font-bold text-white px-4 py-2 rounded"
+                        className="bg-gray-700 w-full max-w-sm mx-auto my-8 font-bold text-white px-4 py-2 rounded"
                     >
                         Sign in with GitHub
                     </button>
