@@ -17,7 +17,7 @@ export async function GET() {
 export async function getFeaturedProjects():Promise<project[]> {
     try{
      noStore()  // disable caching
-    const { rows } = await query('SELECT * FROM projects WHERE isFeatured = true');
+        const { rows } = await query('SELECT * FROM projects WHERE isFeatured = true');
 
    
     const formatted = rows.map((row) => ({
