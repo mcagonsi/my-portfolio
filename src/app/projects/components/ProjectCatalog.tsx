@@ -1,12 +1,16 @@
 'use client';
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function ProjectCatalogCard() {
     return (
         <>
             {[1, 2, 3, 4, 5].map((project) => (
-                <div key={project} className="flex flex-col items-center justify-center sm:w-full h-auto h-64 bg-white rounded-lg shadow-lg p-4 mb-4">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 1 }} key={project} className="flex flex-col items-center justify-center sm:w-full h-auto h-64 bg-white rounded-lg shadow-lg p-4 mb-4">
                     <div className="flex flex-col items-center justify-center w-full h-full">
                         <Image src={`/projects/${project}.jpg`} alt={`Project ${project}`} width={300} height={200} className=" h-32 object-cover rounded-lg mb-2" />
                         <h3 className="text-lg font-semibold text-white">Project {project}</h3>
@@ -19,7 +23,8 @@ export default function ProjectCatalogCard() {
                         </div>
                     </div>
 
-                </div>))}
+
+                </motion.div>))}
         </ >
     );
 }

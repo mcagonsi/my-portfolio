@@ -16,7 +16,7 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className={` w-full ${isHomePage ? "bg-transparent" : "bg-black"} text-white`}>
+        <nav className={`lg:px-16 w-full ${isHomePage ? "bg-transparent" : "bg-black"} text-white`}>
             <div className="max-w-full mx-auto px-4 sticky top-0 z-50 bg-black text-white">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo/Home - visible on all screens */}

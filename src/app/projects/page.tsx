@@ -1,10 +1,10 @@
-"use client";
+
 
 
 import ProjectCatalog from "./components/ProjectCatalog";
 
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
     return (
         <main className="flex flex-col items-center justify-center min-h-screen bg-black text-white p-4">
             <div><h1 className="md:text-3xl font-bold">Top Featured Projects 🔥</h1></div>

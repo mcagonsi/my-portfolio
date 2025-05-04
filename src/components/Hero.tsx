@@ -27,8 +27,15 @@ export default function Hero() {
     }, []);// typing speed (ms)
 
     return (
-        <section className="relative sm:h-screen md:h-screen lg:h-screen flex flex-col justify-center items-left text-left px-4 py-8 bg-black ">
-            <div className="absolute inset-0 opacity-60 bg-[url('/logosport.png')] bg-cover bg-center"></div>
+        <section className="lg:px-16 relative sm:h-screen md:h-screen overflow-hidden lg:h-screen flex flex-col justify-center items-left text-left px-4 py-8 bg-black ">
+            <motion.div
+                animate={{ scale: [1, 1.1, 1], x: [0, 10, 0], y: [0, -10, 0], z: [1, 3, 1] }} // move up then down
+                transition={{
+                    duration: 20,
+                    repeat: Infinity,        // infinite loop
+                    repeatType: "loop",      // or "reverse" for ping-pong effect
+                    ease: "easeInOut"
+                }} className="absolute  inset-0 opacity-60 bg-[url('/logosport.png')] bg-cover bg-center"></motion.div>
 
             <div className=" relative z-20">
                 <motion.h1

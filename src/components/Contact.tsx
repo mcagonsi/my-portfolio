@@ -7,7 +7,7 @@ export default function Contact() {
             initial={{ opacity: 1, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.9 }} id="contact" className="py-20 px-4 bg-black text-white sm:max-w-full md:max-w-xl mx-auto">
+            transition={{ duration: 0.9 }} id="contact" className="py-20 px-4 lg:px-16 bg-black text-white sm:max-w-full md:max-w-xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
                 Contact Me
             </h2>
