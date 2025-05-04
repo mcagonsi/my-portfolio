@@ -4,7 +4,7 @@ import Link from "next/link";
 import ProjectCard from "./ProjectCard";
 import { project } from '@/lib/definition';
 
-// import { connectToDB } from "@/lib/data";
+
 
 export default function Projects({ projectsItems }: { projectsItems: project[] }) {
 
@@ -30,7 +30,7 @@ export default function Projects({ projectsItems }: { projectsItems: project[] }
             {/* Project Cards */}
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Coming Soon Cards */}
-                {projectsItems?.map((item: project) => <ProjectCard key={item.id} {...item} />)}
+                {projectsItems.map((item: project) => <ProjectCard key={item.id} {...item} />)}
             </div>
 
             {/* See All Projects Button */}

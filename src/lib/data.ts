@@ -24,15 +24,16 @@ export async function getFeaturedProjects():Promise<project[]> {
       id: row.id,
       title: row.title,
       description: row.description,
-      techStack: row.techStack,
+      techStack: row.techstack,
       timeposted: row.timeposted,
       category: row.category,
-      linkToLiveProject: row.linkToLiveProject,
-      linkToRepository: row.linkToRepository,
+      linkToLiveProject: row.linktoliveproject,
+      linkToRepository: row.linktogitrepository,
       image: row.image?.toString('base64'),
-      summary: row.summary,
-      isFeatured: row.isFeatured,
+      summary: row.projectsummary,
+      isFeatured: row.isfeatured,
     }));
+        console.log(formatted)
 
     return formatted ;
     }
@@ -40,4 +41,5 @@ export async function getFeaturedProjects():Promise<project[]> {
         console.log(error);
         return [];
     }
+    
 }
