@@ -1,26 +1,27 @@
-import { NextResponse } from 'next/server';
+
 import { unstable_noStore as noStore } from "next/cache";
-import { query } from './db';
+import { supabase } from './supabaseClient'; // ✅ using @supabase/supabase-js
+
 import { project } from './definition';
 
 
-export async function GET() {
+
+export async function getFeaturedProjects(): Promise<project[]> {
   try {
-    const res = await query('SELECT NOW()');
-    return NextResponse.json({ status: 'connected', time: res.rows[0].now });
-  } catch (err) {
-    return NextResponse.json({ status: 'error', error: err }, { status: 500 });
-  }
-}
+    noStore(); // optional: disable SSR cache
 
+    const { data, error } = await supabase
+      .from('projects')
+      .select('*')
+      .eq('isfeatured', true);
 
-export async function getFeaturedProjects():Promise<project[]> {
-    try{
-     noStore()  // disable caching
-        const { rows } = await query('SELECT * FROM projects WHERE isFeatured = true');
+    if (error) {
+      console.error("❌ Supabase error:", error.message);
+      return [];
+    }
 
-   
-    const formatted = rows.map((row) => ({
+    // Optional: convert BYTEA image to base64 if needed
+    const formatted: project[] = data.map((row) => ({
       id: row.id,
       title: row.title,
       description: row.description,
@@ -29,17 +30,14 @@ export async function getFeaturedProjects():Promise<project[]> {
       category: row.category,
       linkToLiveProject: row.linktoliveproject,
       linkToRepository: row.linktogitrepository,
-      image: row.image?.toString('base64'),
+      image: row.image, // or image?.toString('base64') if needed
       summary: row.projectsummary,
       isFeatured: row.isfeatured,
     }));
-        console.log(formatted)
 
-    return formatted ;
-    }
-    catch(error){
-        console.log(error);
-        return [];
-    }
-    
+    return formatted;
+  } catch (err) {
+    console.error("❌ Unexpected fetch error:", err);
+    return [];
+  }
 }
