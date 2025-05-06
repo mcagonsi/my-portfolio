@@ -31,11 +31,11 @@ export default function Hero() {
             <motion.div
                 animate={{ scale: [1, 1.1, 1], x: [0, 10, 0], y: [0, -10, 0], z: [1, 3, 1] }} // move up then down
                 transition={{
-                    duration: 20,
+                    duration: 10,
                     repeat: Infinity,        // infinite loop
                     repeatType: "loop",      // or "reverse" for ping-pong effect
                     ease: "easeInOut"
-                }} className="absolute  inset-0 opacity-60 bg-[url('/logosport.png')] bg-cover bg-center"></motion.div>
+                }} className="absolute  inset-0 opacity-70 bg-[url('/logosport.png')] bg-cover bg-center"></motion.div>
 
             <div className=" relative z-20">
                 <motion.h1
@@ -66,7 +66,7 @@ export default function Hero() {
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.5, duration: 1 }}
-                        className="border-2 border-blue-500 bg-white text-blue-500 px-6 py-2 rounded-md hover:bg-blue-500 hover:text-white">
+                        className="border-2 border-blue-500 bg-white text-blue-500 px-6 py-2 rounded-md hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out hover:scale-105">
 
                         <Link href="#about">Why Hire Me ?</Link>
                     </motion.button>
@@ -75,7 +75,7 @@ export default function Hero() {
                         initial={{ opacity: 0, x: 60 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.5, duration: 1 }}
-                        className="bg-blue-500 px-6 py-2 rounded-md text-white hover:bg-white hover:text-black hover:scale-110">
+                        className="bg-blue-500 px-6 py-2 rounded-md text-white hover:bg-white hover:text-black transition duration-300 ease-in-out hover:scale-110">
                         <Link href="#contact">Let’s Talk</Link>
                     </motion.button>
                 </div>
