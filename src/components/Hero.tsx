@@ -79,7 +79,7 @@ export default function Hero() {
                         <Link href="#contact">Let’s Talk</Link>
                     </motion.button>
                 </div>
-                <div className="flex pb-8 items-left">
+                <div className="flex pb-8 items-start">
                     <SocialLinks />
                 </div>
                 <div>

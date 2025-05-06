@@ -22,15 +22,17 @@ export default function Projects({ projectsItems }: { projectsItems: project[] }
                 My Portfolio
             </h2>
 
-            {/* Top Six Projects */}
+
             <h4 className="text-2xl md:text-2xl  text-blue-800 font-bold text-center mb-8">
                 ❤️‍🔥Top Featured Projects🤔💪
             </h4>
 
             {/* Project Cards */}
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* Coming Soon Cards */}
-                {projectsItems.map((item: project) => <ProjectCard key={item.id} {...item} />)}
+            <div className="max-w-6xl mx-auto grid jus grid-cols-1 md:grid-cols-3 gap-8">
+
+                {projectsItems.length == 0 ?
+                    <p className="mx-auto text-lg col-2 text-center"> No Featured Projects at this moment check back later😅🥲</p> :
+                    projectsItems.map((item: project) => <ProjectCard key={item.id} {...item} />)}
             </div>
 
             {/* See All Projects Button */}
