@@ -7,7 +7,7 @@ export type project = {
     category: string;
     linkToLiveProject: string;
     linkToRepository: string;
-    image:Buffer;
+    image:string;
     summary:string;
     isFeatured: boolean;
 

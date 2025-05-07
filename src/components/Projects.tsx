@@ -37,7 +37,7 @@ export default function Projects({ projectsItems }: { projectsItems: project[] }
 
             {/* See All Projects Button */}
             <div className="mt-12 text-center">
-                <Link href="/projects" className="hover:scale-200 text-black font-semibold px-8 py-3">
+                <Link href="/projects" className="hover:scale-200 text-black hover:underline font-semibold px-8 py-3">
                     See All Projects
                 </Link>
             </div>

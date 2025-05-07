@@ -24,11 +24,12 @@ export default function TechStack() {
                     key={i}
                     src={src}
                     alt="tech logo"
-                    className="w-10 h-10 md:w-12 md:h-12"
+                    className="w-10 h-10 md:w-12 md:h-12 hover:scale-120 transition-transform duration-300 ease-in-out"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
+
                 />
             ))}
         </div>
