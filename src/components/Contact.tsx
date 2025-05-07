@@ -79,7 +79,7 @@ export default function Contact() {
             {showModal && (
                 <div className="fixed inset-1 z-50 flex items-center justify-center  bg-opacity-20">
                     <div className="bg-white p-6 rounded-md shadow-xl max-w-md w-full relative">
-                        <h2 className="text-xl font-semibold mb-2">Thank You!</h2>
+                        <h2 className="text-xl text-black font-semibold mb-2">Thank You!</h2>
                         <p className="text-gray-700 mb-4">Your form has been submitted.</p>
                         <button
                             onClick={() => setShowModal(false)}

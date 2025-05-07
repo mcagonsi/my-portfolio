@@ -1,30 +1,32 @@
-'use client';
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
+"use client"
+import ProjectCard from "./ProjectCard";
+import { useEffect, useState } from "react";
+
 
 export default function ProjectCatalogCard() {
+    const [projects, setProjects] = useState([]);
+    const [showProjects, setShowProjects] = useState([]);
+
+    useEffect(() => {
+        fetch("/api/projects")
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+                setProjects(data);
+
+            });
+    }, []);
+    useEffect(() => {
+        setShowProjects(projects)
+    }, [projects]);
+
+
     return (
         <>
-            {[1, 2, 3, 4, 5].map((project) => (
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }} key={project} className="flex flex-col items-center justify-center sm:w-full h-auto h-64 bg-white rounded-lg shadow-lg p-4 mb-4">
-                    <div className="flex flex-col items-center justify-center w-full h-full">
-                        <Image src={`/projects/${project}.jpg`} alt={`Project ${project}`} width={300} height={200} className=" h-32 object-cover rounded-lg mb-2" />
-                        <h3 className="text-lg font-semibold text-white">Project {project}</h3>
-                        <p className="text-gray-700">Description of Project {project}</p>
-                        <p className="text-gray-700">Tech Stack Used:</p>
-                        <p className="text-gray-700">TimeLine</p>
-                        <div className="flex flex-row items-center justify-center mt-2 space-x-2">
-                            <Link href={`/projects/${project}`} className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">View Project</Link>
-                            <Link href={`/projects/${project}/github`} className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-800">View Code</Link>
-                        </div>
-                    </div>
+            {showProjects.length > 0 ? showProjects.map((project, index) => (
+                <ProjectCard key={index} project={project} />
+            )) : <p>Nothing to show</p>}
 
-
-                </motion.div>))}
         </ >
     );
 }

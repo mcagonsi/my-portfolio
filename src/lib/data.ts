@@ -20,7 +20,7 @@ export async function getFeaturedProjects(): Promise<project[]> {
       return [];
     }
 
-    // Optional: convert BYTEA image to base64 if needed
+    
     const formatted: project[] = data.map((row) => ({
       id: row.id,
       title: row.title,
@@ -55,7 +55,7 @@ export async function getAllProjects(): Promise<project[]> {
       return [];
     }
 
-    // Optional: convert BYTEA image to base64 if needed
+    
     const formatted: project[] = data.map((row) => ({
       id: row.id,
       title: row.title,
