@@ -1,4 +1,5 @@
 "use client"
+
 import ProjectCard from "./ProjectCard";
 import { useEffect, useState } from "react";
 
@@ -25,7 +26,7 @@ export default function ProjectCatalogCard() {
         <>
             {showProjects.length > 0 ? showProjects.map((project, index) => (
                 <ProjectCard key={index} project={project} />
-            )) : <p>Nothing to show</p>}
+            )) : <h2 className="text-3xl text-white text-center col-2 justify-center">No projects yet😭...check back later!✌️</h2>}
 
         </ >
     );
