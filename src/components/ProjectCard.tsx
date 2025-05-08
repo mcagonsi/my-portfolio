@@ -15,19 +15,20 @@ export default function ProjectCard(projectDetail: project) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.7 }}
-            className="bg-white text-black p-6 rounded-md flex flex-col justify-center items-center shadow-sm hover:shadow-lg hover:scale-105 transition duration-300 ease-in-out"
+            className="bg-black text-white p-6 rounded-md flex flex-col hover:scale-105 transition duration-300 ease-in-out"
         >
-            <div className="w-full h-48 flex items-center justify-center bg-gray-200 rounded-md mb-4 overflow-hidden">
+            <div className="w-full h-48 flex items-start bg-gray-200 rounded-md mb-4 overflow-hidden">
                 <Image src={imageSrc} alt={projectDetail.title} width={200} height={20} className="object-cover w-full h-full" />
 
             </div>
-            <div className="mt-2 text-center">
-                <p className="text-lg font-bold text-black py-2">{projectDetail.title}</p>
-                <p className="inline-block  px-4 py-4 text-black rounded-md text-base">
+            <div className="mt-2 text-start">
+                <p className="text-lg font-bold py-2">{projectDetail.title}</p>
+                <p className="text-gray-500">Description: </p>
+                <p className="inline-block  py-4 rounded-md text-base">
                     {projectDetail.description}
                 </p>
-                <div className="flex flex-row justify-around mt-2 gap-4">
-                    <span className='bg-black px-2 py-1 font-bold rounded-sm text-white'>{projectDetail.category}</span>
+                <div className="flex flex-row justify-start mt-2 gap-4">
+                    <span className='bg-white text-black px-2 py-1 font-bold border-2 rounded-sm'>{projectDetail.category}</span>
                     <a href={projectDetail.linkToRepository} target="_blank" rel="noopener noreferrer" className="text-blue-500 font-bold hover:underline mt-2">View Project</a>
                 </div>
             </div>

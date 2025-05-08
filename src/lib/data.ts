@@ -48,7 +48,8 @@ export async function getAllProjects(): Promise<project[]> {
 
     const { data, error } = await supabase
       .from('projects')
-      .select('*');
+      .select('*')
+      .order('timeposted',{ascending:false});
 
     if (error) {
       console.error("Supabase error:", error.message);

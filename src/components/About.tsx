@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import TechStack from "./TechStack";
 export default function About() {
     return (
-        <section id="about" className="py-20 px-4 lg:px-16 bg-white text-black max-w-full mx-auto">
+        <section id="about" className="py-20 px-4 lg:px-24 xl:24 bg-black text-white max-w-full mx-auto">
             {/* Title */}
             <motion.h2
                 initial={{ opacity: 0, y: 50 }}
@@ -18,7 +18,7 @@ export default function About() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7 }} className="max-w-full px-8 mx-auto grid md:grid-cols-2 gap-10 text-gray-500 text-lg leading-relaxed">
+                transition={{ duration: 0.7 }} className="max-w-full px-8 mx-auto grid md:grid-cols-2 gap-10 text-gray-400 text-lg leading-relaxed">
                 <p className="text-center md:text-left">
                     I started my journey in the medical field, driven by a passion for problem-solving and making a tangible impact. Over time, I realized my curiosity extended beyond healthcare — I was drawn to technology’s ability to create scalable, innovative solutions.
                 </p>

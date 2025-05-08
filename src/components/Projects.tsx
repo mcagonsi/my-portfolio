@@ -15,20 +15,16 @@ export default function Projects({ projectsItems }: { projectsItems: project[] }
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="py-20 px-4 lg:px-16  bg-white text-black">
+            className="py-20 px-4 lg:px-16  bg-black text-white">
 
             {/* Title */}
             <h2 className="text-3xl md:text-4xl font-bold max-w-full text-center mb-12">
-                My Portfolio
+                Top Featured Projects
             </h2>
 
 
-            <h4 className="text-2xl md:text-2xl  text-blue-800 font-bold text-center mb-8">
-                ❤️‍🔥Top Featured Projects🤔💪
-            </h4>
-
             {/* Project Cards */}
-            <div className="max-w-6xl mx-auto grid jus grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="max-w-6xl mx-auto grid jus grid-cols-1 md:grid-cols-2 gap-8">
 
                 {projectsItems.length == 0 ?
                     <p className="mx-auto text-lg col-2 text-center"> No Featured Projects at this moment check back later😅🥲</p> :
@@ -36,8 +32,8 @@ export default function Projects({ projectsItems }: { projectsItems: project[] }
             </div>
 
             {/* See All Projects Button */}
-            <div className="mt-12 text-center">
-                <Link href="/projects" className="hover:scale-200 text-black hover:underline font-semibold px-8 py-3">
+            <div className="mt-12 text-start">
+                <Link href="/projects" className="px-30 hover:scale-110 text-white md:text-xl hover:underline font-semibold py-3">
                     See All Projects
                 </Link>
             </div>

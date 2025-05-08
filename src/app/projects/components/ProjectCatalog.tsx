@@ -26,7 +26,7 @@ export default function ProjectCatalogCard() {
         <>
             {showProjects.length > 0 ? showProjects.map((project, index) => (
                 <ProjectCard key={index} project={project} />
-            )) : <h2 className="text-3xl text-white text-center col-2 justify-center">No projects yet😭...check back later!✌️</h2>}
+            )) : <h2 className="text-3xl text-white text-center col-2 justify-center">Nothing to Show...Check Back Later</h2>}
 
         </ >
     );
