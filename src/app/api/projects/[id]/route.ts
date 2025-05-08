@@ -1,11 +1,9 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabaseClient';
 
-export async function DELETE(
-  _request: Request,
-  context: { params: { id: string } }
-) {
-  const projectId = context.params.id;
+export async function DELETE(request: Request) {
+  const deleteProjectId = request.url.split('/').pop(); // Extract the project ID from the URL
+  const projectId = deleteProjectId ? parseInt(deleteProjectId) : null; // Convert to number
 
   if (!projectId) {
     return NextResponse.json({ error: 'Project ID is required' }, { status: 400 });
