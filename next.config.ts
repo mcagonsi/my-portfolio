@@ -7,7 +7,8 @@ const nextConfig: NextConfig = {
       "tse1.mm.bing.net",
       "tse3.mm.bing.net",
       "tse4.mm.bing.net",
-      "picsum.photos"
+      "picsum.photos",
+      "b7jtl1aaovwqzqcf.public.blob.vercel-storage.com",
     ],
   },
 };

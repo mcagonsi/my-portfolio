@@ -1,15 +1,17 @@
 
+import { project } from "@/lib/definition"
 
 
-export default function ProjectReports() {
+export default async function ProjectReports({ allProjects }: { allProjects: project[] }) {
 
-    const projectReport = {
-        "total": 0,
-        "fullstack": 0,
-        "frontend": 4,
-        "backend": 0,
-
-    }
+    const projectReport = allProjects.reduce(
+        (acc,item) => {
+            acc.total++;
+            acc[item.category] = (acc[item.category]||0)+1;
+            return acc;
+        },
+        {total:0} as Record<string,number>
+    )
     return (
 
         <section className="flex sm:flex-row md:flex-col gap-4 p-4 text-black">

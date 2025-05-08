@@ -76,3 +76,32 @@ export async function getAllProjects(): Promise<project[]> {
     return [];
   }
 }
+
+export async function addNewProject(data: {title:string,description:string,image:string,datePosted:string,category:string,techStack:string,summary:string,linkToLiveProject:string,linkToRepository:string,isFeatured:boolean}) {
+
+ const {error} = await supabase
+ .from('projects')
+   .insert(
+    [
+       {
+        title: data.title,
+        description: data.description,
+        techstack: data.techStack,
+        timeposted: data.datePosted,
+        category: data.category,
+        linktoliveproject: data.linkToLiveProject,
+        linktogitrepository: data.linkToRepository,
+        image: data.image,
+        isfeatured: data.isFeatured,
+        projectsummary: data.summary,
+
+      }
+    ]
+  );
+  
+   if (error) {
+    throw new Error(`Supabase insert error: ${error.message}`);
+  }
+ 
+  
+}

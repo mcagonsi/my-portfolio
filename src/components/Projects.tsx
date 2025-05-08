@@ -8,7 +8,7 @@ import { project } from '@/lib/definition';
 
 export default function Projects({ projectsItems }: { projectsItems: project[] }) {
 
-    projectsItems.length = 0;
+
     return (
         <motion.section id="projects"
             initial={{ opacity: 1, scale: 1, y: 20 }}
