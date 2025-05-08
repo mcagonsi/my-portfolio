@@ -1,14 +1,15 @@
 "use client"
-import { project } from "@/lib/definition";
+
 import { useState } from "react";
 
 
 
-export default function ProjectsEditCreate({ project }: { project?: project }) {
+export default function ProjectsEditCreate() {
     const [successMessage, setSuccessMessage] = useState<string>('');
     const [imageExitsError, setImageExistsError] = useState<string>('');
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const form = e.currentTarget;
         fetch('/api/projects', {
             method: 'POST',
             body: new FormData(e.currentTarget),
@@ -19,6 +20,7 @@ export default function ProjectsEditCreate({ project }: { project?: project }) {
                 setTimeout(() => {
                     setSuccessMessage('');
                 }, 3000);
+                form.reset()
             })
             .catch((err) => {
                 if (err.status === 500) {
