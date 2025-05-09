@@ -6,34 +6,39 @@ import { useState } from "react";
 
 export default function ProjectsEditCreate() {
     const [successMessage, setSuccessMessage] = useState<string>('');
-    const [imageExitsError, setImageExistsError] = useState<string>('');
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const form = e.currentTarget;
-        fetch('/api/projects', {
-            method: 'POST',
-            body: new FormData(e.currentTarget),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                setSuccessMessage(data.message);
-                setTimeout(() => {
-                    setSuccessMessage('');
-                }, 3000);
-                form.reset()
-            })
-            .catch((err) => {
-                if (err.status === 500) {
-                    setImageExistsError('Image already exists, please upload a different image');
-                }
-                setTimeout(() => {
-                    setImageExistsError('');
-                }
-                    , 3000);
-                console.error(err);
-            })
+        const formData = new FormData(form);
 
-    }
+        try {
+            const res = await fetch('/api/projects', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data?.message || "Something went wrong");
+            }
+
+            setSuccessMessage(data.message);
+
+            form.reset();
+
+            setTimeout(() => {
+                setSuccessMessage('');
+
+            }, 3000);
+        } catch (err) {
+
+
+            console.error("Upload error:", err);
+        }
+    };
+
     const updateProject = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget.closest('form')!);
@@ -53,7 +58,7 @@ export default function ProjectsEditCreate() {
                         <option>frontend</option>
                         <option>backend</option>
                     </select>
-                    <span className="text-red-500 text-sm font-bold">{imageExitsError}</span>
+
                 </div>
                 <div className="flex flex-col col-2 gap-4 w-full">
                     <input name="techStack" type='text' className="border rounded-sm p-2 " required placeholder='Tech Stack used' />
