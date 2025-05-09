@@ -24,7 +24,7 @@ export default function Projects({ projectsItems }: { projectsItems: project[] }
 
 
             {/* Project Cards */}
-            <div className="max-w-6xl mx-auto grid jus grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="max-w-6xl mx-auto grid jus grid-cols-1 md:grid-cols-3 gap-8">
 
                 {projectsItems.length == 0 ?
                     <p className="mx-auto text-lg col-2 text-center"> No Featured Projects at this moment check back later😅🥲</p> :
