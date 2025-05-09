@@ -1,10 +1,11 @@
 "use client"
-
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 
 
 export default function ProjectsEditCreate() {
+    const router = useRouter();
     const [successMessage, setSuccessMessage] = useState<string>('');
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -27,6 +28,7 @@ export default function ProjectsEditCreate() {
             setSuccessMessage(data.message);
 
             form.reset();
+            router.refresh();
 
             setTimeout(() => {
                 setSuccessMessage('');
