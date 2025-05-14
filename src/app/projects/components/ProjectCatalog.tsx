@@ -23,11 +23,11 @@ export default function ProjectCatalogCard() {
 
 
     return (
-        <>
+        <main className="mt-10 w-full flex flex-wrap gap-8">
             {showProjects.length > 0 ? showProjects.map((project, index) => (
                 <ProjectCard key={index} project={project} />
-            )) : <h2 className="text-3xl text-white text-center col-2 justify-center">Nothing to Show...Check Back Later</h2>}
+            )) : <h2 className="text-3xl text-white text-center mx-auto justify-center"> Nothing to Show...Check Back Later</h2>}
 
-        </ >
+        </main>
     );
 }
