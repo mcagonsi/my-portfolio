@@ -9,7 +9,6 @@ export async function GET() {
 
 export async function POST(request: Request) {
   const formData = await request.formData();
-  console.log(formData,"is received")
   const data = Object.fromEntries(formData.entries());
   let imageUrl = '';
   const imageFile = formData.get('image') as File;

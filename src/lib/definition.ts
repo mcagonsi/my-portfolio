@@ -12,3 +12,11 @@ export type project = {
     isFeatured: boolean;
 
 }
+
+export type contactMessage = {
+    name: string;
+    email: string;
+    phone: string;
+    service: string;
+    projectDetails: string;
+}

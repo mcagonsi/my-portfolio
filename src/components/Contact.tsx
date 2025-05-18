@@ -6,10 +6,28 @@ export default function Contact() {
 
     const [showModal, setShowModal] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // Fake submission logic
+        const form = e.currentTarget
+        const formData = new FormData(form);
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const resData = await res.json();
+            if (!res.ok) {
+                throw new Error(resData?.message || "Something went wrong");
+            }
+            console.log("email sent successfully");
+            form.reset();
+        }
+        catch (err) {
+            console.log("Error sending email:", err);
+        }
+
 
         setShowModal(true);
         setTimeout(() => {
@@ -31,36 +49,36 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Left Column Inputs */}
                 <input
+                    name="name"
                     type="text"
                     placeholder="Full Name"
-                    className="p-3 rounded-md text-black bg-white focus:outline-none"
+                    className="p-3 rounded-md text-black bg-white focus:outline-none" required
                 />
                 <input
+                    name="email"
                     type="email"
                     placeholder="Email Address"
-                    className="p-3 rounded-md text-black bg-white focus:outline-none"
+                    className="p-3 rounded-md text-black bg-white focus:outline-none" required
                 />
                 <input
+                    name="phone"
                     type="text"
                     placeholder="Phone Number"
-                    className="p-3 rounded-md text-black bg-white focus:outline-none"
+                    className="p-3 rounded-md text-black bg-white focus:outline-none" required
                 />
                 <input
+                    name="service"
                     type="text"
                     placeholder="Service of Interest"
-                    className="p-3 rounded-md text-black bg-white focus:outline-none"
-                />
-                <input
-                    type="date"
-                    placeholder="Timeline"
-                    className="p-3 rounded-md text-black bg-white focus:outline-none md:col-span-2"
+                    className="p-3 rounded-md text-black bg-white focus:outline-none" required
                 />
 
                 {/* Right Column Textarea */}
                 <textarea
+                    name="projectDetails"
                     placeholder="Project Details"
                     rows={5}
-                    className="p-3 rounded-md text-black bg-white focus:outline-none md:col-span-2"
+                    className="p-3 rounded-md text-black bg-white focus:outline-none md:col-span-2" required
                 />
 
                 {/* Send Button */}
@@ -80,7 +98,7 @@ export default function Contact() {
                 <div className="fixed inset-1 z-50 flex items-center justify-center  bg-opacity-20">
                     <div className="bg-white p-6 rounded-md shadow-xl max-w-md w-full relative">
                         <h2 className="text-xl text-black font-semibold mb-2">Thank You!</h2>
-                        <p className="text-gray-700 mb-4">Your form has been submitted.</p>
+                        <p className="text-gray-700 mb-4">I will be in contact with you as soon as possible!</p>
                         <button
                             onClick={() => setShowModal(false)}
                             className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl leading-none"
