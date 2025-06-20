@@ -19,7 +19,7 @@ export default function ProjectCard({ project }: { project: project }) {
                 <Image src={project.image} alt={project.title} width={300} height={300} className="  w-full h-90 object-fit rounded-lg mb-2" />
                 <h3 className="text-lg text-start font-semibold text-blue-400">Project: <span className="text-white">{project.title}</span> </h3>
                 <p className="text-blue-400">Description: <span className="text-gray-500">{project.description}</span> </p>
-                <p className="text-blue-400">Tech Stack Used: <span className="text-gray-500 flex flex-wrap gap-2">{project.techStack.split(' ').map((skill, index) => (<span key={index} className="p-1 bg-black text-gray-400 border-gray-400 border rounded-sm hover:bg-white transition duration-300 ease-in-out hover:text-black">{skill}</span>))}</span></p>
+                <p className="text-blue-400">Tech Stack Used: <span className="text-gray-500 flex flex-wrap gap-2">{project.techstack.split(' ').map((skill, index) => (<span key={index} className="p-1 bg-black text-gray-400 border-gray-400 border rounded-sm hover:bg-white transition duration-300 ease-in-out hover:text-black">{skill}</span>))}</span></p>
                 <p className="text-blue-400">Date Posted: <span className="text-gray-500">{new Date(project.timeposted).toISOString().split('T')[0]}</span></p>
                 <p className="text-blue-400">Summary: <span className="text-gray-500">{project.summary}</span></p>
                 <div className="flex flex-row items-start justify-start mt-2 space-x-2">
@@ -29,7 +29,7 @@ export default function ProjectCard({ project }: { project: project }) {
                 </div>
                 <div className="flex flex-row justify-between items-center">
                     <span className='text-black text-upperCase w-fit item-end px-4 py-2 mt-10 rounded-sm bg-white'>{project.category}</span>
-                    {project.isFeatured && <span className='text-white text-4xl w-fit item-end px-4 py-2 mt-10 rounded-sm'>🔥</span>}
+                    {project.isfeatured && <span className='text-white text-4xl w-fit item-end px-4 py-2 mt-10 rounded-sm'>🔥</span>}
                 </div>
 
             </div >
