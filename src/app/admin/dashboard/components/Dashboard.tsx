@@ -8,6 +8,7 @@ import ProjectsView from "./ProjectsView";
 
 
 export default function DashBoard({ projects }: { projects: project[] }) {
+
     const [editProject, setEditProject] = useState<project>({
         id: 0,
         title: '',
@@ -24,7 +25,9 @@ export default function DashBoard({ projects }: { projects: project[] }) {
     });
     const handleEditProject = (project: project) => {
         setEditProject(project)
+
     }
+
     return (
         <>
 

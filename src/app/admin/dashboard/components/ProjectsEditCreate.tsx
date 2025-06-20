@@ -9,20 +9,6 @@ export default function ProjectsEditCreate({ projectToEdit }: { projectToEdit: p
     const router = useRouter();
 
     const [successMessage, setSuccessMessage] = useState<string>('');
-    // let editProject = {
-    //     id: 0,
-    //     title: '',
-    //     description: '',
-    //     image: '',
-    //     timeposted: Date(),
-    //     category: '',
-    //     techStack: '',
-    //     summary: '',
-    //     linkToLiveProject: '',
-    //     linkToRepository: '',
-    //     isFeatured: false,
-
-    // }
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -73,6 +59,10 @@ export default function ProjectsEditCreate({ projectToEdit }: { projectToEdit: p
                 setSuccessMessage(updateRes.message)
             }
             setSuccessMessage(updateRes.message)
+            setTimeout(() => {
+                setSuccessMessage('');
+
+            }, 3000);
         }
         catch (err) {
             console.log(err)

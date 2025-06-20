@@ -66,7 +66,7 @@ export async function getAllProjects(): Promise<project[]> {
       category: row.category,
       linkToLiveProject: row.linktoliveproject,
       linkToRepository: row.linktogitrepository,
-      image: row.image, // or image?.toString('base64') if needed
+      image: row.image as string, // or image?.toString('base64') if needed
       summary: row.projectsummary,
       isfeatured: row.isfeatured,
     }));

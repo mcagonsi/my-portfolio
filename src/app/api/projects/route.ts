@@ -42,7 +42,7 @@ export async function POST(request: Request) {
       linkToRepository: data.linktogitrepository as string,
       isfeatured: data.isfeatured === 'true',
     });
-    console.log(data);
+    
     return NextResponse.json({ message: "Project added successfully" });
   } catch (error) {
     console.error("Error adding project:", error);

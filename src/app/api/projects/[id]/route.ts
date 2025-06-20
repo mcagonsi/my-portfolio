@@ -35,6 +35,8 @@ export async function PUT(request: Request) {
 
   // Remove id from data so it doesn't get updated
   delete data.id;
+  delete data.image;
+  
 
   const { error } = await supabase
     .from('projects')
