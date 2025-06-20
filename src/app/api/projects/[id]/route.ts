@@ -33,9 +33,16 @@ export async function PUT(request: Request) {
     return NextResponse.json({ error: 'Project ID is required' }, { status: 400 });
   }
 
+  if(data.isfeatured === 'on'){
+    data.isfeatured = 'true';
+  }
+  if (!('isfeatured' in data)) {
+    data.isfeatured = 'false';
+  }
   // Remove id from data so it doesn't get updated
   delete data.id;
   delete data.image;
+  
   
 
   const { error } = await supabase

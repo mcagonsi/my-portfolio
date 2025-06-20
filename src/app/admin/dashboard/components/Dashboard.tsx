@@ -26,6 +26,7 @@ export default function DashBoard({ projects }: { projects: project[] }) {
     const handleEditProject = (project: project) => {
         setEditProject(project)
 
+
     }
 
     return (

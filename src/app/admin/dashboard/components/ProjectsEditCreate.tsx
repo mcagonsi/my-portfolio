@@ -46,9 +46,9 @@ export default function ProjectsEditCreate({ projectToEdit }: { projectToEdit: p
 
     const updateProject = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
+
         const formData = new FormData(e.currentTarget.closest('form')!);
-        const data = Object.fromEntries(formData.entries());
-        console.log(data)
+
         try {
             const res = await fetch(`/api/projects/${projectToEdit.id}`, {
                 method: "PUT",
@@ -63,6 +63,8 @@ export default function ProjectsEditCreate({ projectToEdit }: { projectToEdit: p
                 setSuccessMessage('');
 
             }, 3000);
+
+            router.refresh();
         }
         catch (err) {
             console.log(err)
@@ -70,7 +72,7 @@ export default function ProjectsEditCreate({ projectToEdit }: { projectToEdit: p
     }
     return (
         <main className="text-black">
-            <form onSubmit={handleSubmit} className="grid  grid-cols-1 md:grid-cols-2 gap-8 border-left border-gray-300 p-4 bg-white rounded-lg shadow-md">
+            <form key={projectToEdit.id} onSubmit={handleSubmit} className="grid  grid-cols-1 md:grid-cols-2 gap-8 border-left border-gray-300 p-4 bg-white rounded-lg shadow-md">
                 <div className="flex flex-col gap-4 w-full">
                     <input defaultValue={projectToEdit.title} name="title" type='text' className="border rounded-sm p-2 " required placeholder='Project Title' />
                     <input defaultValue={projectToEdit.description} name="description" type='text' className="border rounded-sm p-2 " required placeholder='Description' />
@@ -89,7 +91,8 @@ export default function ProjectsEditCreate({ projectToEdit }: { projectToEdit: p
                     <input defaultValue={projectToEdit.linkToLiveProject} name="linktoliveproject" type='url' className="border rounded-sm p-2 " required placeholder='Link to Live Project' />
                     <input defaultValue={projectToEdit.linkToRepository} name="linktogitrepository" type='url' className="border rounded-sm p-2 " required placeholder='Link to Github Repo' />
                     <label>
-                        <input defaultChecked={!!projectToEdit.isfeatured} name="isfeatured" type='checkbox' className="border" />
+                        <input defaultChecked={projectToEdit.isfeatured}
+                            name="isfeatured" type='checkbox' className="border" />
                         Feature this Project
                     </label>
 
