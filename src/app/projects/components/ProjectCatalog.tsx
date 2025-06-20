@@ -12,7 +12,7 @@ export default function ProjectCatalogCard() {
         fetch("/api/projects")
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
+
                 setProjects(data);
 
             });
