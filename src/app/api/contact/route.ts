@@ -1,3 +1,4 @@
+// Improved error handling and logging for the contact API route
 import nodemailer from 'nodemailer';
 import { NextResponse } from 'next/server';
 import { contactMessage } from '@/lib/definition';
@@ -12,7 +13,11 @@ export async function POST(request: Request) {
         service: data.service as string,
         projectDetails: data.projectDetails as string,
     };
-    console.log(message)
+
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_PASS) {
+        console.error("GMAIL_USER or GMAIL_PASS environment variables are not set.");
+        return NextResponse.json({ message: "Server configuration error." }, { status: 500 });
+    }
 
     const transporter = nodemailer.createTransport({
         service: "gmail",
@@ -64,9 +69,8 @@ export async function POST(request: Request) {
         await transporter.sendMail(mailOptions);
         await transporter.sendMail(noReplyOptions);
         return NextResponse.json({ message: "Message sent successfully" });
-    
-    }catch(err){
-        console.log("Error sending email:", err);
-        return NextResponse.json({message: "Error sending email"}, {status: 500});	
+    } catch (err) {
+        console.error("Error sending email:", err);
+        return NextResponse.json({ message: "Error sending email" }, { status: 500 });
     }
 }

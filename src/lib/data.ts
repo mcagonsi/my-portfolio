@@ -25,14 +25,14 @@ export async function getFeaturedProjects(): Promise<project[]> {
       id: row.id,
       title: row.title,
       description: row.description,
-      techStack: row.techstack,
+      techstack: row.techstack,
       timeposted: row.timeposted,
       category: row.category,
       linkToLiveProject: row.linktoliveproject,
       linkToRepository: row.linktogitrepository,
       image: row.image, // or image?.toString('base64') if needed
       summary: row.projectsummary,
-      isFeatured: row.isfeatured,
+      isfeatured: row.isfeatured,
     }));
 
     return formatted;
@@ -61,15 +61,16 @@ export async function getAllProjects(): Promise<project[]> {
       id: row.id,
       title: row.title,
       description: row.description,
-      techStack: row.techstack,
+      techstack: row.techstack,
       timeposted: row.timeposted,
       category: row.category,
       linkToLiveProject: row.linktoliveproject,
       linkToRepository: row.linktogitrepository,
       image: row.image, // or image?.toString('base64') if needed
       summary: row.projectsummary,
-      isFeatured: row.isfeatured,
+      isfeatured: row.isfeatured,
     }));
+    
 
     return formatted;
   } catch (err) {
@@ -78,7 +79,7 @@ export async function getAllProjects(): Promise<project[]> {
   }
 }
 
-export async function addNewProject(data: {title:string,description:string,image:string,datePosted:string,category:string,techStack:string,summary:string,linkToLiveProject:string,linkToRepository:string,isFeatured:boolean}) {
+export async function addNewProject(data: {title:string,description:string,image:string,datePosted:string,category:string,techStack:string,summary:string,linkToLiveProject:string,linkToRepository:string,isfeatured:boolean}) {
 
  const {error} = await supabase
  .from('projects')
@@ -93,7 +94,7 @@ export async function addNewProject(data: {title:string,description:string,image
         linktoliveproject: data.linkToLiveProject,
         linktogitrepository: data.linkToRepository,
         image: data.image,
-        isfeatured: data.isFeatured,
+        isfeatured: data.isfeatured,
         projectsummary: data.summary,
 
       }

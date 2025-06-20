@@ -1,88 +1,57 @@
-# Personal Portfolio Website
+# My Portfolio
 
-https://michael-agonsi.vercel.app
-
-A modern, responsive portfolio website built with Next.js and TypeScript, featuring a clean and professional design.
+## Overview
+This is a personal portfolio website showcasing my projects, skills, and services. It includes a contact form that allows users to send inquiries directly to my email.
 
 ## Features
+- **Dynamic Contact Form**: Users can send inquiries via email.
+- **Responsive Design**: Optimized for all screen sizes.
+- **Admin Dashboard**: Manage projects and view reports.
+- **Tech Stack**: Built with Next.js, Tailwind CSS, and TypeScript.
 
-- 🎨 Modern and responsive design
-- 🚀 Fast page loads with Next.js 15
-- 💅 Styled with Tailwind CSS
-- ✨ Smooth animations with Framer Motion
-- 📱 Mobile-friendly navigation
-- 🔍 SEO optimized
-- 🌐 Multiple sections including:
-  - Hero section
-  - About Me
-  - Projects showcase
-  - Contact form
-  - Tech stack display
-  - Social links
-
-## Tech Stack
-
-- **Framework**: Next.js 15
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Development Tools**:
-  - ESLint for code linting
-  - Turbopack for fast development builds
-  - VS Code (recommended editor)
-
-## Getting Started
+## Installation
 
 1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/my-portfolio.git
+   ```
 
+2. Navigate to the project directory:
+   ```bash
+   cd my-portfolio
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Create a `.env` file in the root directory and add the following environment variables:
+   ```env
+   GMAIL_USER=your-email@gmail.com
+   GMAIL_PASS=your-app-password
+   ```
+
+5. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Usage
+- Navigate through the portfolio to view projects and skills.
+- Use the contact form to send inquiries.
+- Admin dashboard is accessible for managing projects (if implemented).
+
+## Testing
+To run tests:
 ```bash
-git clone https://github.com/mcagonsi/my-portfolio.git
+npm run test
 ```
 
-2. Install dependencies:
-
-```bash
-npm install
-```
-
-3. Run the development server:
-
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
-
-## Building for Production
-
-To create a production build:
-
-```bash
-npm run build
-```
-
-Then start the production server:
-
-```bash
-npm run start
-```
-
-## Project Structure
-
-- `/src/app` - Main application pages and layouts
-- `/src/components` - Reusable React components
-- `/src/lib` - Utility functions and helpers
-- `/public` - Static assets including logos and images
-
-## Customization
-
-The website can be customized by:
-
-- Modifying component files in `/src/components`
-- Updating styles in `/src/app/styles/globals.css`
-- Adding new sections by creating components and importing them in `page.tsx`
-- Configuring SEO settings in `src/seo.config.ts`
+## Contributing
+Contributions are welcome! Please fork the repository and submit a pull request.
 
 ## License
-
-MIT License
+This project is licensed under the MIT License.

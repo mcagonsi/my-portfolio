@@ -5,16 +5,16 @@ import { project } from "@/lib/definition"
 export default async function ProjectReports({ allProjects }: { allProjects: project[] }) {
 
     const projectReport = allProjects.reduce(
-        (acc,item) => {
+        (acc, item) => {
             acc.total++;
-            acc[item.category] = (acc[item.category]||0)+1;
+            acc[item.category] = (acc[item.category] || 0) + 1;
             return acc;
         },
-        {total:0} as Record<string,number>
+        { total: 0 } as Record<string, number>
     )
     return (
 
-        <section className="flex sm:flex-row md:flex-col gap-4 p-4 text-black">
+        <section className="flex flex-row gap-4 p-4 text-black">
             {Object.entries(projectReport).map(([key, value]) => (
                 <div key={key} className="w-full flex flex-col items-center justify-center">
                     <p>{key.charAt(0).toUpperCase() + key.slice(1)}</p>

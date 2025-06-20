@@ -12,6 +12,7 @@ export async function POST(request: Request) {
   const data = Object.fromEntries(formData.entries());
   let imageUrl = '';
   const imageFile = formData.get('image') as File;
+  
 
   if (imageFile) {
     const blob = await put(`projects/${imageFile.name}`, imageFile,
@@ -19,6 +20,7 @@ export async function POST(request: Request) {
     imageUrl = blob.url;
     data.image = imageUrl;
   }
+  
   if(data.isFeatured === 'on'){
     data.isFeatured = 'true';
   }
@@ -34,11 +36,11 @@ export async function POST(request: Request) {
       image: imageUrl,
       datePosted: datePosted,
       category: data.category as string,
-      techStack: data.techStack as string,
-      summary: data.summary as string,
+      techStack: data.techstack as string,
+      summary: data.projectsummary as string,
       linkToLiveProject: data.linktoliveproject as string,
-      linkToRepository: data.linktogithub as string,
-      isFeatured: data.isFeatured === 'true',
+      linkToRepository: data.linktogitrepository as string,
+      isfeatured: data.isfeatured === 'true',
     });
     console.log(data);
     return NextResponse.json({ message: "Project added successfully" });
@@ -49,9 +51,3 @@ export async function POST(request: Request) {
   }
 }
 
-export async function PUT(request: Request) {
-  const formData = await request.formData();
-  const data = Object.fromEntries(formData.entries());
-  console.log(data);
-  return NextResponse.json({ message: "Project updated successfully" });
-}

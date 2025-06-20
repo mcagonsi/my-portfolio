@@ -1,12 +1,29 @@
 "use client"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { project } from "@/lib/definition"
 
 
 
-export default function ProjectsEditCreate() {
+export default function ProjectsEditCreate({ projectToEdit }: { projectToEdit: project }) {
     const router = useRouter();
+
     const [successMessage, setSuccessMessage] = useState<string>('');
+    // let editProject = {
+    //     id: 0,
+    //     title: '',
+    //     description: '',
+    //     image: '',
+    //     timeposted: Date(),
+    //     category: '',
+    //     techStack: '',
+    //     summary: '',
+    //     linkToLiveProject: '',
+    //     linkToRepository: '',
+    //     isFeatured: false,
+
+    // }
+
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -41,21 +58,35 @@ export default function ProjectsEditCreate() {
         }
     };
 
-    const updateProject = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const updateProject = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget.closest('form')!);
         const data = Object.fromEntries(formData.entries());
-        console.log(data);
+        console.log(data)
+        try {
+            const res = await fetch(`/api/projects/${projectToEdit.id}`, {
+                method: "PUT",
+                body: formData
+            });
+            const updateRes = await res.json()
+            if (!res.ok || res.status == 500) {
+                setSuccessMessage(updateRes.message)
+            }
+            setSuccessMessage(updateRes.message)
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
     return (
         <main className="text-black">
             <form onSubmit={handleSubmit} className="grid  grid-cols-1 md:grid-cols-2 gap-8 border-left border-gray-300 p-4 bg-white rounded-lg shadow-md">
                 <div className="flex flex-col gap-4 w-full">
-                    <input name="title" type='text' className="border rounded-sm p-2 " required placeholder='Project Title' />
-                    <input name="description" type='text' className="border rounded-sm p-2 " required placeholder='Description' />
-                    <input name="image" type='file' accept="image/" className="border p-2 " required placeholder='Upload Image' />
+                    <input defaultValue={projectToEdit.title} name="title" type='text' className="border rounded-sm p-2 " required placeholder='Project Title' />
+                    <input defaultValue={projectToEdit.description} name="description" type='text' className="border rounded-sm p-2 " required placeholder='Description' />
+                    <input name='image' type='file' accept="image/" className="border p-2 " required placeholder='Upload Image' />
                     {/* <input name='dateCompleted' type='date' className="border rounded-sm w-sm p-2 " required placeholder='Date Completed' /> */}
-                    <select name='category' className="border w-sm p-2 rounded-sm required" >
+                    <select defaultValue={projectToEdit.category} name='category' className="border w-sm p-2 rounded-sm required" >
                         <option>fullstack</option>
                         <option>frontend</option>
                         <option>backend</option>
@@ -63,12 +94,12 @@ export default function ProjectsEditCreate() {
 
                 </div>
                 <div className="flex flex-col col-2 gap-4 w-full">
-                    <input name="techStack" type='text' className="border rounded-sm p-2 " required placeholder='Tech Stack used' />
-                    <textarea name="summary" className="border rounded-sm p-2  h-40 align-top required" placeholder='Project Summary' />
-                    <input name="linktoliveproject" type='url' className="border rounded-sm p-2 " required placeholder='Link to Live Project' />
-                    <input name="linktogithub" type='url' className="border rounded-sm p-2 " required placeholder='Link to Github Repo' />
+                    <input defaultValue={projectToEdit.techstack} name="techstack" type='text' className="border rounded-sm p-2 " required placeholder='Tech Stack used' />
+                    <textarea defaultValue={projectToEdit.summary} name="projectsummary" className="border rounded-sm p-2  h-40 align-top required" placeholder='Project Summary' />
+                    <input defaultValue={projectToEdit.linkToLiveProject} name="linktoliveproject" type='url' className="border rounded-sm p-2 " required placeholder='Link to Live Project' />
+                    <input defaultValue={projectToEdit.linkToRepository} name="linktogitrepository" type='url' className="border rounded-sm p-2 " required placeholder='Link to Github Repo' />
                     <label>
-                        <input name="isFeatured" type='checkbox' className="border" />
+                        <input defaultChecked={!!projectToEdit.isfeatured} name="isfeatured" type='checkbox' className="border" />
                         Feature this Project
                     </label>
 

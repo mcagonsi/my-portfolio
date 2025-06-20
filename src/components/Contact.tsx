@@ -2,14 +2,38 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function Contact() {
+// Modal Component for better reusability
+function Modal({ message, onClose }: { message: string; onClose: () => void }) {
+    return (
+        <div className="fixed inset-1 z-50 flex items-center justify-center bg-opacity-20">
+            <div className="bg-white p-6 rounded-md shadow-xl max-w-md w-full relative">
+                <h2 className="text-xl text-black font-semibold mb-2">Thank You!</h2>
+                <p className="text-gray-700 mb-4">{message}</p>
+                <button
+                    onClick={onClose}
+                    className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl leading-none"
+                >
+                    &times;
+                </button>
+                <button
+                    onClick={onClose}
+                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                >
+                    Close
+                </button>
+            </div>
+        </div>
+    );
+}
 
+export default function Contact() {
     const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const form = e.currentTarget
+        const form = e.currentTarget;
         const formData = new FormData(form);
         try {
             const res = await fetch('/api/contact', {
@@ -21,19 +45,17 @@ export default function Contact() {
             if (!res.ok) {
                 throw new Error(resData?.message || "Something went wrong");
             }
-            console.log("email sent successfully");
+            setModalMessage("I will be in contact with you as soon as possible!");
             form.reset();
+        } catch (err) {
+            console.error("Error sending email:", err);
+            setModalMessage("Failed to send your message. Please try again later.");
         }
-        catch (err) {
-            console.log("Error sending email:", err);
-        }
-
 
         setShowModal(true);
         setTimeout(() => {
             setShowModal(false);
         }, 3000); // Close modal after 3 seconds
-
     };
 
     return (
@@ -92,30 +114,8 @@ export default function Contact() {
                 </div>
             </form>
 
-
             {/* Modal */}
-            {showModal && (
-                <div className="fixed inset-1 z-50 flex items-center justify-center  bg-opacity-20">
-                    <div className="bg-white p-6 rounded-md shadow-xl max-w-md w-full relative">
-                        <h2 className="text-xl text-black font-semibold mb-2">Thank You!</h2>
-                        <p className="text-gray-700 mb-4">I will be in contact with you as soon as possible!</p>
-                        <button
-                            onClick={() => setShowModal(false)}
-                            className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl leading-none"
-                        >
-                            &times;
-                        </button>
-                        <button
-                            onClick={() => setShowModal(false)}
-                            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                        >
-                            Close
-                        </button>
-                    </div>
-                </div>
-            )}
-
-
+            {showModal && <Modal message={modalMessage} onClose={() => setShowModal(false)} />}
         </motion.section>
     );
 }
